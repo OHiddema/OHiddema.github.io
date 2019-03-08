@@ -172,7 +172,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
     if ((ChooseScore == true) && (this.style.fontWeight < 900)) {
       this.style.cursor = "auto";
       this.style.fontWeight = 900;
-      this.style.backgroundColor = "lightblue";
+      this.style.backgroundColor = "#4CAF50";
       this.style.color = "black"
       ChooseScore = false;
       beurten = 3;
@@ -219,10 +219,10 @@ for (i = 0; i < cl_TdClick.length; i++) {
       if (rondes > 13) {
         setInterval(function () {
           id = document.getElementById("score");
-          if (id.style.backgroundColor == "darkkhaki") {
+          if (id.style.backgroundColor == "4CAF50") {
             id.style.backgroundColor = "white";
           } else {
-            id.style.backgroundColor = "darkkhaki";
+            id.style.backgroundColor = "4CAF50";
           }
         }
           , 500);
@@ -246,7 +246,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
 for (i = 0; i < cl_TdClick.length; i++) {
   cl_TdClick[i].onmouseenter = function () {
     if (this.style.fontWeight < 900) {
-      this.style.backgroundColor = "orange";
+      this.style.backgroundColor = "#4CAF50";
     }
   }
   cl_TdClick[i].onmouseleave = function () {
