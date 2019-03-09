@@ -4,6 +4,10 @@ var beurten = 3; // aantal beurten binnen een ronde loopt af van 3 naar 1
 var rondes = 1; // aantal rondes loopt op van 1 naar 13
 var ChooseScore = false;  // geeft aan of speler een score mag kiezen in de tabel
 
+const clrGreen100 = "#C8E6C9";
+const clrGreen500 = "#4CAF50";
+const clrGreen800 = "#2E7D32";
+
 // zet alle DOM-elementen in variabelen
 var id_btnDobbel = document.getElementById("btnDobbel");
 var id_btnPlayAgain = document.getElementById("btnPlayAgain");
@@ -172,7 +176,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
     if ((ChooseScore == true) && (this.style.fontWeight < 900)) {
       this.style.cursor = "auto";
       this.style.fontWeight = 900;
-      this.style.backgroundColor = "#4CAF50";
+      this.style.backgroundColor = clrGreen500;
       this.style.color = "black"
       ChooseScore = false;
       beurten = 3;
@@ -219,10 +223,10 @@ for (i = 0; i < cl_TdClick.length; i++) {
       if (rondes > 13) {
         setInterval(function () {
           id = document.getElementById("score");
-          if (id.style.backgroundColor == "4CAF50") {
+          if (id.style.backgroundColor == clrGreen500) {
             id.style.backgroundColor = "white";
           } else {
-            id.style.backgroundColor = "4CAF50";
+            id.style.backgroundColor = clrGreen500;
           }
         }
           , 500);
@@ -246,7 +250,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
 for (i = 0; i < cl_TdClick.length; i++) {
   cl_TdClick[i].onmouseenter = function () {
     if (this.style.fontWeight < 900) {
-      this.style.backgroundColor = "#4CAF50";
+      this.style.backgroundColor = clrGreen500;
     }
   }
   cl_TdClick[i].onmouseleave = function () {

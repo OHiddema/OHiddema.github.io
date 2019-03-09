@@ -1,102 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 
 <head>
-  <title>Yahtzee</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Fondamento:400i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <script src="script.js" defer></script>
-  <meta name="author" content="Oege Hiddema">
-  <meta name="version" content="03-02-2019">
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D</title>
+  <link rel="stylesheet" href="cube3d.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 
 <body>
-  <header>Yahtzee!</header>
-  <main>
-    <div class="container">
-      <button id="btnDobbel">Dobbel</button>
-      <div class="div_stenen" id="variabel"></div>
-      <div class="div_stenen" id="vast"></div>
-      <p id="message">Dummy</p>
-      <button id="btnPlayAgain">Begin opnieuw</button>
-    </div>
-    <div class="container">
-      <table>
-        <tr>
-          <th></th>
-          <th>Punten</th>
-        </tr>
-        <tr>
-          <td>Enen</td>
-          <td class="td_clickable" id="td1"></td>
-        </tr>
-        <tr>
-          <td>Twee&#xEB;n</td>
-          <td class="td_clickable" id="td2"></td>
-        </tr>
-        <tr>
-          <td>Drie&#xEB;n</td>
-          <td class="td_clickable" id="td3"></td>
-        </tr>
-        <tr>
-          <td>Vieren</td>
-          <td class="td_clickable" id="td4"></td>
-        </tr>
-        <tr>
-          <td>Vijfen</td>
-          <td class="td_clickable" id="td5"></td>
-        </tr>
-        <tr>
-          <td>Zessen</td>
-          <td class="td_clickable" id="td6"></td>
-        </tr>
-        <tr class="tr_dk">
-          <td>Totaal</td>
-          <td id="totaal"></td>
-        </tr>
-        <tr class="tr_dk">
-          <td>Bonus</td>
-          <td id="bonus"></td>
-        </tr>
-        <tr>
-          <td>Three of a kind</td>
-          <td class="td_clickable" id="threeofakind"></td>
-        </tr>
-        <tr>
-          <td>Four of a kind</td>
-          <td class="td_clickable" id="fourofakind"></td>
-        </tr>
-        <tr>
-          <td>Full house</td>
-          <td class="td_clickable" id="fullhouse"></td>
-        </tr>
-        <tr>
-          <td>Kleine straat</td>
-          <td class="td_clickable" id="kleinestraat"></td>
-        </tr>
-        <tr>
-          <td>Grote straat</td>
-          <td class="td_clickable" id="grotestraat"></td>
-        </tr>
-        <tr>
-          <td>Chance</td>
-          <td class="td_clickable" id="chance"></td>
-        </tr>
-        <tr>
-          <td>Yahtzee</td>
-          <td class="td_clickable" id="yahtzee"></td>
-        </tr>
-        <tr class="tr_dk">
-          <td>Score</td>
-          <td id="score"></td>
-        </tr>
-      </table>
-    </div>
-  </main>
-  <footer>© <a href="mailto:oegehidddema@gmail.com">Oege Hiddema</a> , versie: 8-3-2019 13:28</footer>
+  <h1>Let's play yahtzee!</h1>
+  <p>Klik op de dobbelsteen om te beginnen</p>
+  <div class="cubecontainer">
+    <a href="yahtzee.html">
+      <div class="cubespinner">
+        <div class="face1"><img src="dice1.svg"></div>
+        <div class="face2"><img src="dice2.svg"></div>
+        <div class="face3"><img src="dice3.svg"></div>
+        <div class="face4"><img src="dice4.svg"></div>
+        <div class="face5"><img src="dice5.svg"></div>
+        <div class="face6"><img src="dice6.svg"></div>
+      </div>
+    </a>
+  </div>
 </body>
 
 </html>

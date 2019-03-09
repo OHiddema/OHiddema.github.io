@@ -1,0 +1,107 @@
+  :root {
+    --cubesize: 120px;
+    --halfsize: calc(var(--cubesize)/2);
+    --clrGreen100: #C8E6C9;
+  }
+
+  @keyframes spincube {
+
+    from,
+    to {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    17% {
+      transform: rotateX(90deg);
+    }
+
+    33% {
+      transform: rotateY(-90deg);
+    }
+
+    50% {
+      transform: rotateY(90deg);
+    }
+
+    67% {
+      transform: rotateX(-90deg);
+    }
+
+    83% {
+      transform: rotateY(180deg);
+    }
+
+  } 
+
+  .cubespinner {
+    animation-name: spincube;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    transform-style: preserve-3d;
+    transform-origin: var(--halfsize) var(--halfsize) 0;
+  }
+
+  .cubespinner div {
+    position: absolute;
+    width: var(--cubesize);
+    height: var(--cubesize);
+    border: 2px solid #ccc;
+    backface-visibility: hidden;
+  }
+
+  /* Om ervoor te zorgen dat de zes zijden samen een kubus vormen,
+  moeten deze eerst worden getransleerd/geroteerd t.o.v, hun originele
+  positie */
+
+  .cubespinner .face1 {
+    transform: translateZ(var(--halfsize));
+  }
+
+  .cubespinner .face2 {
+    transform: rotateX(-90deg) translateZ(var(--halfsize));
+  }
+
+  .cubespinner .face3 {
+    transform: rotateY(90deg) translateZ(var(--halfsize));
+  }
+
+  .cubespinner .face4 {
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(var(--halfsize));
+  }
+
+  .cubespinner .face5 {
+    transform: rotateY(90deg) rotateX(90deg) translateZ(var(--halfsize));
+  }
+
+  .cubespinner .face6 {
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(var(--halfsize));
+  }
+
+  html {
+    height: 100%;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--clrGreen100);
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cubespinner {
+    position: relative;
+    width: var(--cubesize);
+    height: var(--cubesize);
+  }
+
+  .cubecontainer {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
