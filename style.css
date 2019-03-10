@@ -19,6 +19,12 @@ body {
   margin: 0;
 }
 
+.fa-question-circle {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
 header {
   font-family: 'Fondamento', cursive;
   font-size: 3em;
