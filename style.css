@@ -24,6 +24,9 @@ body {
   top: 8px;
   left: 8px;
 }
+.fa-question-circle:hover {
+  transform: scale(1.2);
+}
 
 header {
   font-family: 'Fondamento', cursive;
