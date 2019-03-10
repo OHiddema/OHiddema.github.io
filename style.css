@@ -69,9 +69,24 @@ button:hover {
   background-color: var(--clrGreen800);
 }
 
-#message {
+#worpenContainer {
+  display: flex;
+  align-items: center;
+}
+
+#worpen {
+  height: 14px;
+  display: flex;
+  border: 1px solid black;
+  margin-left: 5px; /* marge met tekst links ervan */
+}
+
+.worp {
+  margin: 1px;
+  width: 12px;
+  height: 12px;
+  background-color: black;
   visibility: hidden;
-  margin: 0;
 }
 
 table {
