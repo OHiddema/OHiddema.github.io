@@ -13,8 +13,10 @@ var id_btnDobbel = document.getElementById("btnDobbel");
 var id_btnPlayAgain = document.getElementById("btnPlayAgain");
 var id_Var = document.getElementById("variabel");
 var id_Vast = document.getElementById("vast");
-var id_Mes = document.getElementById("message");
 var cl_TdClick = document.getElementsByClassName("td_clickable");
+var id_worp1 = document.getElementById("worp1");
+var id_worp2 = document.getElementById("worp2");
+var id_worp3 = document.getElementById("worp3");
 
 window.onload = function () {
   for (i = 0; i < 5; i++) {
@@ -50,19 +52,18 @@ id_btnDobbel.onclick = function () {
   ChooseScore = true;
   switch (beurten) {
     case 0: {
-      id_Mes.innerHTML = "Kies je score!";
       id_btnDobbel.disabled = true;
+      id_worp3.style.visibility = "visible";
     }
       break;
     case 1: {
-      id_Mes.innerHTML = "Nog eenmaal dobbelen...";
+      id_worp2.style.visibility = "visible";
     }
       break;
     default: {  // beurten = 2 is de enige optie die overblijft
-      id_Mes.innerHTML = "Nog tweemaal dobbelen...";
+      id_worp1.style.visibility = "visible";
     }
   }
-  id_Mes.style.visibility = "visible"
   score_opties();
 }
 
@@ -181,6 +182,9 @@ for (i = 0; i < cl_TdClick.length; i++) {
       ChooseScore = false;
       beurten = 3;
       rondes += 1;
+      id_worp1.style.visibility = "hidden";
+      id_worp2.style.visibility = "hidden";
+      id_worp3.style.visibility = "hidden";
 
       // bepaal of velden 1 t/m 6 allemaal gevuld zijn en bepaal totaal
       var blnAlleGevuld = true;
@@ -235,7 +239,6 @@ for (i = 0; i < cl_TdClick.length; i++) {
       if (rondes <= 13) {
         id_btnDobbel.disabled = false;
       }
-      id_Mes.style.visibility = "hidden";
       for (k = 0; k < 5; k++) {
         if (id_Vast.contains(steen[k])) {
           id_Vast.removeChild(steen[k]);

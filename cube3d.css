@@ -4,6 +4,8 @@
     --clrGreen100: #C8E6C9;
   }
 
+  /* linkshandig coordinatenstelsel (!?)
+  x-as naar rechts, y-as omhoog, z-as uit het xy-vlak omhoog! */
   @keyframes spincube {
 
     from,
@@ -55,6 +57,7 @@
   positie */
 
   .cubespinner .face1 {
+    /* transform: translateZ(var(--halfsize)); */
     transform: translateZ(var(--halfsize));
   }
 
@@ -67,15 +70,15 @@
   }
 
   .cubespinner .face4 {
-    transform: rotateY(-90deg) rotateZ(90deg) translateZ(var(--halfsize));
+    transform: rotateY(-90deg) translateZ(var(--halfsize));
   }
 
   .cubespinner .face5 {
-    transform: rotateY(90deg) rotateX(90deg) translateZ(var(--halfsize));
+    transform: rotateX(90deg) translateZ(var(--halfsize));
   }
 
   .cubespinner .face6 {
-    transform: rotateY(180deg) rotateZ(90deg) translateZ(var(--halfsize));
+    transform: rotateY(180deg) translateZ(var(--halfsize));
   }
 
   html {
