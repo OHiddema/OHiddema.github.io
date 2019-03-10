@@ -88,7 +88,7 @@ function score_opties() {
       if (aantal[i] > 0) {
         id.innerHTML = aantal[i] * i;
       } else {
-        id.innerHTML = "";
+        id.innerHTML = "0";
       }
     }
   }
@@ -111,7 +111,7 @@ function score_opties() {
     if (blnThree) {
       id.innerHTML = som_stenen;
     } else {
-      id.innerHTML = "";
+      id.innerHTML = "0";
     }
   }
 
@@ -121,7 +121,7 @@ function score_opties() {
     if (blnFour) {
       id.innerHTML = som_stenen;
     } else {
-      id.innerHTML = "";
+      id.innerHTML = "0";
     }
   }
 
@@ -131,7 +131,7 @@ function score_opties() {
     if (blnFullHouse) {
       id.innerHTML = 25;
     } else {
-      id.innerHTML = "";
+      id.innerHTML = "0";
     }
   }
 
@@ -141,7 +141,7 @@ function score_opties() {
     if (blnKleineStraat) {
       id.innerHTML = 30;
     } else {
-      id.innerHTML = "";
+      id.innerHTML = "0";
     }
   }
 
@@ -151,7 +151,7 @@ function score_opties() {
     if (blnGroteStraat) {
       id.innerHTML = 40;
     } else {
-      id.innerHTML = "";
+      id.innerHTML = "0";
     }
   }
 
@@ -167,7 +167,7 @@ function score_opties() {
     if (blnYahtzee) {
       id.innerHTML = 50;
     } else {
-      id.innerHTML = "";
+      id.innerHTML = "0";
     }
   }
 }
