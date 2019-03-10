@@ -223,11 +223,10 @@ for (i = 0; i < cl_TdClick.length; i++) {
       }
       document.getElementById("score").innerHTML = totaal;
 
-      // Spel is voltooid
       if (rondes > 13) {
         setInterval(function () {
           id = document.getElementById("score");
-          if (id.style.backgroundColor == clrGreen500) {
+          if (id.style.backgroundColor != "white") {
             id.style.backgroundColor = "white";
           } else {
             id.style.backgroundColor = clrGreen500;

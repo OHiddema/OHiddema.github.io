@@ -1,0 +1,16 @@
+07-03-2019 - 13-03-2019
+CSS variabelen gebruikt om kleurwaardes vast te leggen en deze ook overgenomen inJS.
+Header en footer toegevoegd.
+Custom fonts gebruikt.
+Aantal worpen; tekst veranderd in custom progress bar.
+Intopagina met 3D-element toegevoegd.
+Linkpagina met uitleg toegevoegd.
+'Font Awesome' icoon gebruikt.
+
+
+01-03-2019 - 06-03-2019
+Maximaal gebruik gemaakt van flexbox om de layout te optimaliseren.
+Fontsize van 'px' naar 'em' omgezet.
+JS: DOM-elementen in variabelen gezet i.v.m. performance.
+RegExp gebruikt om mogelijke scores te berekenen.
+
