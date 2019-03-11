@@ -19,13 +19,24 @@ body {
   margin: 0;
 }
 
-.fa-question-circle {
+#iconContainer {
   position: absolute;
-  top: 8px;
-  left: 8px;
 }
+
+#iconContainer * {
+  margin: 8px;
+}
+
 .fa-question-circle:hover {
   transform: scale(1.2);
+}
+
+#volumeMax:hover, #volumeMin:hover {
+  cursor: pointer;
+}
+
+#volumeMin {
+  display: none;
 }
 
 header {
@@ -52,6 +63,10 @@ footer {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+#audioDice {
+  display: none;
 }
 
 button {

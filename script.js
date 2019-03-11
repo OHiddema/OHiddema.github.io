@@ -14,9 +14,26 @@ var id_btnPlayAgain = document.getElementById("btnPlayAgain");
 var id_Var = document.getElementById("variabel");
 var id_Vast = document.getElementById("vast");
 var cl_TdClick = document.getElementsByClassName("td_clickable");
+
 var id_worp1 = document.getElementById("worp1");
 var id_worp2 = document.getElementById("worp2");
 var id_worp3 = document.getElementById("worp3");
+
+var id_audioDice = document.getElementById("audioDice");
+var id_volumeMin = document.getElementById("volumeMin");
+var id_volumeMax = document.getElementById("volumeMax");
+
+id_volumeMin.onclick = function() {
+  id_audioDice.volume = 1;
+  this.style.display = "none";
+  id_volumeMax.style.display = "inline";
+}
+
+id_volumeMax.onclick = function() {
+  id_audioDice.volume = 0;
+  this.style.display = "none";
+  id_volumeMin.style.display = "inline";
+}
 
 window.onload = function () {
   for (i = 0; i < 5; i++) {
@@ -39,6 +56,7 @@ window.onload = function () {
 }
 
 id_btnDobbel.onclick = function () {
+  id_audioDice.play();
   for (i = 0; i < 5; i++) {
     // dobbel met de stenen op de 1e rij
     if (id_Var.contains(steen[i])) {
@@ -182,6 +200,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
       ChooseScore = false;
       beurten = 3;
       rondes += 1;
+      id_btnDobbel.disabled = (rondes > 13);
       id_worp1.style.visibility = "hidden";
       id_worp2.style.visibility = "hidden";
       id_worp3.style.visibility = "hidden";
@@ -235,9 +254,9 @@ for (i = 0; i < cl_TdClick.length; i++) {
           , 500);
       }
 
-      if (rondes <= 13) {
-        id_btnDobbel.disabled = false;
-      }
+      // if (rondes <= 13) {
+      //   id_btnDobbel.disabled = false;
+      // }
       for (k = 0; k < 5; k++) {
         if (id_Vast.contains(steen[k])) {
           id_Vast.removeChild(steen[k]);

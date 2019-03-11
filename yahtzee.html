@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Fondamento:400i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <script src="script.js" defer></script>
   <meta name="author" content="Oege Hiddema">
   <meta charset="UTF-8">
@@ -14,11 +15,20 @@
 </head>
 
 <body>
-  <a href="uitleg.html" target="_blank"><i class="far fa-question-circle fa-lg"></i></a>
+
+  <div id=iconContainer>
+    <a href="uitleg.html" target="_blank"><i class="far fa-question-circle fa-lg"></i></a>
+    <i id="volumeMax" class="fas fa-volume-up fa-lg"></i>
+    <i id="volumeMin" class="fas fa-volume-off fa-lg"></i>
+  </div>
+
   <header>Yahtzee!</header>
   <main>
     <div class="container">
       <button id="btnDobbel">Dobbel</button>
+      <audio id="audioDice">
+        <source src="rolling_dice.wav" type="audio/wav">
+      </audio>
       <div class="div_stenen" id="variabel"></div>
       <div class="div_stenen" id="vast"></div>
       <div id="worpenContainer">
@@ -104,7 +114,7 @@
       </table>
     </div>
   </main>
-  <footer>© <a href="mailto:oegehidddema@gmail.com">Oege Hiddema</a> , versie: 10-3-2019 22:08</footer>
+  <footer>© <a href="mailto:oegehidddema@gmail.com">Oege Hiddema</a> , versie: 11-3-2019 22:05</footer>
 </body>
 
 </html>
