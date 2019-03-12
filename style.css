@@ -21,6 +21,8 @@ body {
 
 #iconContainer {
   position: absolute;
+  display: flex;
+  flex-direction: column;
 }
 
 #iconContainer * {
