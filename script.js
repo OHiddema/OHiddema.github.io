@@ -56,6 +56,7 @@ window.onload = function () {
 }
 
 id_btnDobbel.onclick = function () {
+  id_audioDice.load(); //forceert opnieuw afspelen als geluidsfragment nog niet is afgelopen
   id_audioDice.play();
   for (i = 0; i < 5; i++) {
     // dobbel met de stenen op de 1e rij

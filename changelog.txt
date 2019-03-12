@@ -10,6 +10,7 @@
 - Bugfix: dobbel-button werd na afloop van het spel niet gedisabled als de laatste ronde minder dan 3 worpen duurde.
 - Twee wisselende icoontjes (aan/uit) toegevoegd om geluid aan of uit te zetten.
 - Layout absoluut gepositioneerde iconen linksboven aangepast; onder elkaar i.p.v. naast elkaar vanwege overlap met header bij minimale breedte scherm.
+- Geluidsfragment altijd opnieuw laden bij afspelen (nodig omdat opnieuw afspelen anders niet werkt als het geluidsfragment nog loopt)
 
 
 01-03-2019 - 06-03-2019
