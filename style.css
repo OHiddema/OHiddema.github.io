@@ -29,13 +29,13 @@ body {
   margin: 8px;
 }
 
-.fa-question-circle:hover {
-  transform: scale(1.2);
-}
-
-#volumeMax:hover, #volumeMin:hover {
+#iconContainer *:hover {
   cursor: pointer;
 }
+
+/* #volumeMax:hover, #volumeMin:hover {
+  cursor: pointer;
+} */
 
 #volumeMin {
   display: none;

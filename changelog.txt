@@ -11,6 +11,7 @@
 - Twee wisselende icoontjes (aan/uit) toegevoegd om geluid aan of uit te zetten.
 - Layout absoluut gepositioneerde iconen linksboven aangepast; onder elkaar i.p.v. naast elkaar vanwege overlap met header bij minimale breedte scherm.
 - Geluidsfragment altijd opnieuw laden bij afspelen (nodig omdat opnieuw afspelen anders niet werkt als het geluidsfragment nog loopt)
+- Refresh button 'opnieuw beginnen' vervangen door icoon linksboven.
 
 
 01-03-2019 - 06-03-2019

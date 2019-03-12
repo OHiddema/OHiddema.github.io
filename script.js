@@ -10,7 +10,6 @@ const clrGreen800 = "#2E7D32";
 
 // zet alle DOM-elementen in variabelen
 var id_btnDobbel = document.getElementById("btnDobbel");
-var id_btnPlayAgain = document.getElementById("btnPlayAgain");
 var id_Var = document.getElementById("variabel");
 var id_Vast = document.getElementById("vast");
 var cl_TdClick = document.getElementsByClassName("td_clickable");
@@ -22,14 +21,15 @@ var id_worp3 = document.getElementById("worp3");
 var id_audioDice = document.getElementById("audioDice");
 var id_volumeMin = document.getElementById("volumeMin");
 var id_volumeMax = document.getElementById("volumeMax");
+var id_refresh = document.getElementById("refresh");
 
-id_volumeMin.onclick = function() {
+id_volumeMin.onclick = function () {
   id_audioDice.volume = 1;
   this.style.display = "none";
   id_volumeMax.style.display = "inline";
 }
 
-id_volumeMax.onclick = function() {
+id_volumeMax.onclick = function () {
   id_audioDice.volume = 0;
   this.style.display = "none";
   id_volumeMin.style.display = "inline";
@@ -67,8 +67,9 @@ id_btnDobbel.onclick = function () {
     }
   }
 
-  beurten = beurten - 1;
   ChooseScore = true;
+
+  beurten = beurten - 1;
   switch (beurten) {
     case 0: {
       id_btnDobbel.disabled = true;
@@ -89,6 +90,7 @@ id_btnDobbel.onclick = function () {
 function score_opties() {
   var aantal = []; //het aantal gedobbelde enen, tweeeen, ... , zessen in de worp
   var som_stenen = 0; // de som van de waarde van alle stenen in de worp
+  var id //als tijdelijke opslag DOM variabele
 
   // initialisatie array
   for (i = 1; i <= 6; i++) { aantal[i] = 0; }
@@ -101,15 +103,8 @@ function score_opties() {
 
   // zet punten voor enen t/m zessen in de tabel
   for (i = 1; i <= 6; i++) {
-    var myId = "td" + i;
-    var id = document.getElementById(myId);
-    if (id.style.fontWeight < 900) {
-      if (aantal[i] > 0) {
-        id.innerHTML = aantal[i] * i;
-      } else {
-        id.innerHTML = "0";
-      }
-    }
+    var id = document.getElementById("td" + i);
+    if (id.style.fontWeight < 900) { id.innerHTML = aantal[i] * i; }
   }
 
   //Let's use Regular Expressions!
@@ -124,73 +119,29 @@ function score_opties() {
   var blnGroteStraat = /12345|23456/.test(tmpStr);
   var blnYahtzee = /(.)\1{4}/.test(tmpStr);
 
-  // Three of a kind
-  var id = document.getElementById("threeofakind");
-  if (id.style.fontWeight < 900) {
-    if (blnThree) {
-      id.innerHTML = som_stenen;
-    } else {
-      id.innerHTML = "0";
-    }
-  }
+  id = document.getElementById("threeofakind");
+  if (id.style.fontWeight < 900) {id.innerHTML = blnThree * som_stenen;}
 
-  // Four of a kind
-  var id = document.getElementById("fourofakind");
-  if (id.style.fontWeight < 900) {
-    if (blnFour) {
-      id.innerHTML = som_stenen;
-    } else {
-      id.innerHTML = "0";
-    }
-  }
+  id = document.getElementById("fourofakind");
+  if (id.style.fontWeight < 900) {id.innerHTML = blnFour * som_stenen;}
 
-  // Full house 
-  var id = document.getElementById("fullhouse");
-  if (id.style.fontWeight < 900) {
-    if (blnFullHouse) {
-      id.innerHTML = 25;
-    } else {
-      id.innerHTML = "0";
-    }
-  }
+  id = document.getElementById("fullhouse");
+  if (id.style.fontWeight < 900) {id.innerHTML = blnFullHouse * 25;}
 
-  // Kleine straat
-  var id = document.getElementById("kleinestraat");
-  if (id.style.fontWeight < 900) {
-    if (blnKleineStraat) {
-      id.innerHTML = 30;
-    } else {
-      id.innerHTML = "0";
-    }
-  }
+  id = document.getElementById("kleinestraat");
+  if (id.style.fontWeight < 900) {id.innerHTML = blnKleineStraat * 30;}
 
-  // Grote straat
-  var id = document.getElementById("grotestraat");
-  if (id.style.fontWeight < 900) {
-    if (blnGroteStraat) {
-      id.innerHTML = 40;
-    } else {
-      id.innerHTML = "0";
-    }
-  }
+  id = document.getElementById("grotestraat");
+  if (id.style.fontWeight < 900) {id.innerHTML = blnGroteStraat * 40;}
 
-  // Chance
-  var id = document.getElementById("chance");
-  if (id.style.fontWeight < 900) {
-    id.innerHTML = som_stenen;
-  }
+  id = document.getElementById("chance");
+  if (id.style.fontWeight < 900) {id.innerHTML = som_stenen;}
 
-  // Yahtzee
-  var id = document.getElementById("yahtzee");
-  if (id.style.fontWeight < 900) {
-    if (blnYahtzee) {
-      id.innerHTML = 50;
-    } else {
-      id.innerHTML = "0";
-    }
-  }
+  id = document.getElementById("yahtzee");
+  if (id.style.fontWeight < 900) {id.innerHTML = blnYahtzee * 50;}
 }
 
+// Hier wordt het klikken op een scoreveld afgehandeld
 for (i = 0; i < cl_TdClick.length; i++) {
   cl_TdClick[i].onclick = function () {
     if ((ChooseScore == true) && (this.style.fontWeight < 900)) {
@@ -207,7 +158,6 @@ for (i = 0; i < cl_TdClick.length; i++) {
       id_worp3.style.visibility = "hidden";
 
       // bepaal of velden 1 t/m 6 allemaal gevuld zijn en bepaal totaal
-      var blnAlleGevuld = true;
       var Totaal_EenTotZes = 0;
       var blnBonus = false;
       for (i = 1; i <= 6; i++) {
@@ -215,16 +165,14 @@ for (i = 0; i < cl_TdClick.length; i++) {
         var id = document.getElementById(myId);
         if (id.style.fontWeight == 900) {
           Totaal_EenTotZes += Number(id.innerHTML);
-        } else {
-          blnAlleGevuld = false;
-        }
+        } 
       }
 
       if (Totaal_EenTotZes > 0) {
         document.getElementById("totaal").innerHTML = Totaal_EenTotZes;
       }
 
-      if (blnAlleGevuld && (Totaal_EenTotZes >= 63)) {
+      if (Totaal_EenTotZes >= 63) {
         blnBonus = true;
         document.getElementById("bonus").innerHTML = 35;
       }
@@ -244,6 +192,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
       document.getElementById("score").innerHTML = totaal;
 
       if (rondes > 13) {
+        // spel is afgelopen
         setInterval(function () {
           id = document.getElementById("score");
           if (id.style.backgroundColor != "white") {
@@ -255,9 +204,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
           , 500);
       }
 
-      // if (rondes <= 13) {
-      //   id_btnDobbel.disabled = false;
-      // }
+      // zet alle stenen terug naar de eerste rij en maak ze onzichtbaar
       for (k = 0; k < 5; k++) {
         if (id_Vast.contains(steen[k])) {
           id_Vast.removeChild(steen[k]);
@@ -283,4 +230,4 @@ for (i = 0; i < cl_TdClick.length; i++) {
 }
 
 // Pagina vernieuwen
-id_btnPlayAgain.onclick = function () { location.reload(); }
+id_refresh.onclick = function () { location.reload(); }
