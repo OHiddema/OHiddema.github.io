@@ -8,7 +8,7 @@ const clrGreen100 = "#C8E6C9";
 const clrGreen500 = "#4CAF50";
 const clrGreen800 = "#2E7D32";
 
-// zet alle DOM-elementen in variabelen
+// zet DOM-elementen in variabelen
 var id_btnDobbel = document.getElementById("btnDobbel");
 var id_Var = document.getElementById("variabel");
 var id_Vast = document.getElementById("vast");
@@ -35,22 +35,20 @@ id_volumeMax.onclick = function () {
   id_volumeMin.style.display = "inline";
 }
 
-window.onload = function () {
-  for (i = 0; i < 5; i++) {
-    steen[i] = document.createElement("img");
-    id_Var.appendChild(steen[i]);
-    steen[i].style.display = "none"; // maak de stenen nog niet zichtbaar
+for (i = 0; i < 5; i++) {
+  steen[i] = document.createElement("img");
+  id_Var.appendChild(steen[i]);
+  steen[i].style.display = "none"; // maak de stenen nog niet zichtbaar
 
-    //verplaats steen van rij
-    steen[i].onclick = function () {
-      if (id_Var.contains(this)) {
-        id_Var.removeChild(this);
-        id_Vast.appendChild(this);
-      }
-      else {
-        id_Vast.removeChild(this);
-        id_Var.appendChild(this);
-      }
+  //verplaats steen van rij
+  steen[i].onclick = function () {
+    if (id_Var.contains(this)) {
+      id_Var.removeChild(this);
+      id_Vast.appendChild(this);
+    }
+    else {
+      id_Vast.removeChild(this);
+      id_Var.appendChild(this);
     }
   }
 }
@@ -62,7 +60,7 @@ id_btnDobbel.onclick = function () {
     // dobbel met de stenen op de 1e rij
     if (id_Var.contains(steen[i])) {
       waarde[i] = (Math.floor(6 * Math.random()) + 1);
-      steen[i].src = "dice" + waarde[i] + ".svg";
+      steen[i].src = "image/" + "dice" + waarde[i] + ".svg";
       steen[i].style.display = "inline";
     }
   }
@@ -120,31 +118,31 @@ function score_opties() {
   var blnYahtzee = /(.)\1{4}/.test(tmpStr);
 
   id = document.getElementById("threeofakind");
-  if (id.style.fontWeight < 900) {id.innerHTML = blnThree * som_stenen;}
+  if (id.style.fontWeight < 900) { id.innerHTML = blnThree * som_stenen; }
 
   id = document.getElementById("fourofakind");
-  if (id.style.fontWeight < 900) {id.innerHTML = blnFour * som_stenen;}
+  if (id.style.fontWeight < 900) { id.innerHTML = blnFour * som_stenen; }
 
   id = document.getElementById("fullhouse");
-  if (id.style.fontWeight < 900) {id.innerHTML = blnFullHouse * 25;}
+  if (id.style.fontWeight < 900) { id.innerHTML = blnFullHouse * 25; }
 
   id = document.getElementById("kleinestraat");
-  if (id.style.fontWeight < 900) {id.innerHTML = blnKleineStraat * 30;}
+  if (id.style.fontWeight < 900) { id.innerHTML = blnKleineStraat * 30; }
 
   id = document.getElementById("grotestraat");
-  if (id.style.fontWeight < 900) {id.innerHTML = blnGroteStraat * 40;}
+  if (id.style.fontWeight < 900) { id.innerHTML = blnGroteStraat * 40; }
 
   id = document.getElementById("chance");
-  if (id.style.fontWeight < 900) {id.innerHTML = som_stenen;}
+  if (id.style.fontWeight < 900) { id.innerHTML = som_stenen; }
 
   id = document.getElementById("yahtzee");
-  if (id.style.fontWeight < 900) {id.innerHTML = blnYahtzee * 50;}
+  if (id.style.fontWeight < 900) { id.innerHTML = blnYahtzee * 50; }
 }
 
 // Hier wordt het klikken op een scoreveld afgehandeld
 for (i = 0; i < cl_TdClick.length; i++) {
   cl_TdClick[i].onclick = function () {
-    if ((ChooseScore == true) && (this.style.fontWeight < 900)) {
+    if (ChooseScore && (this.style.fontWeight < 900)) {
       this.style.cursor = "auto";
       this.style.fontWeight = 900;
       this.style.backgroundColor = clrGreen500;
@@ -165,7 +163,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
         var id = document.getElementById(myId);
         if (id.style.fontWeight == 900) {
           Totaal_EenTotZes += Number(id.innerHTML);
-        } 
+        }
       }
 
       if (Totaal_EenTotZes > 0) {
