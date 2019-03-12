@@ -1,2 +1,2 @@
-With this web-application you can play Yahtzee.
+With this web-application you can play yahtzee.
 Language: Dutch.
