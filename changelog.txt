@@ -1,5 +1,6 @@
 16-03-2019
-Gedobbelde stenen worden een voor een getoond.
+- Gedobbelde stenen worden een voor een getoond.
+- Uitlijning iconen linksboven verbetert door !important in css toe te passen op uitleg-link.
 
 07-03-2019 - 13-03-2019
 - CSS variabelen gebruikt om kleurwaardes vast te leggen en deze ook overgenomen inJS.

@@ -19,6 +19,11 @@ body {
   margin: 0;
 }
 
+#icnUitleg {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 #iconContainer {
   position: absolute;
   display: flex;
@@ -32,10 +37,6 @@ body {
 #iconContainer *:hover {
   cursor: pointer;
 }
-
-/* #volumeMax:hover, #volumeMin:hover {
-  cursor: pointer;
-} */
 
 #volumeMin {
   display: none;
