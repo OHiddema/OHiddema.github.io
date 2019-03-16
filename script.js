@@ -56,13 +56,22 @@ for (i = 0; i < 5; i++) {
 id_btnDobbel.onclick = function () {
   id_audioDice.load(); //forceert opnieuw afspelen als geluidsfragment nog niet is afgelopen
   id_audioDice.play();
+
+  aantalVar = 0;
   for (i = 0; i < 5; i++) {
     // dobbel met de stenen op de 1e rij
     if (id_Var.contains(steen[i])) {
       waarde[i] = (Math.floor(6 * Math.random()) + 1);
-      steen[i].src = "image/" + "dice" + waarde[i] + ".svg";
-      steen[i].style.display = "inline";
+      steen[i].src = "image/dice" + waarde[i] + ".svg";
+      steen[i].style.display = "none";
+      aantalVar++;
+      myDelayDisplay(i, aantalVar);
     }
+  }
+
+  // setTimeout kan niet in de for-loop staan, omdat de argumenten niet mogen veranderen tijdens het wachten!
+  function myDelayDisplay(a, b) {
+    setTimeout(function(){steen[a].style.display = "inline";}, 500*b)
   }
 
   ChooseScore = true;
