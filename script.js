@@ -38,23 +38,23 @@ for (i = 0; i < 5; i++) {
   steen[i] = document.createElement("img");
   id_Var.appendChild(steen[i]);
   steen[i].style.display = "none"; // maak de stenen nog niet zichtbaar
+  steen[i].addEventListener("click", function () { verplaatsSteen(this); });
+}
 
-  //verplaats steen van rij
-  steen[i].onclick = function () {
-    if (id_Var.contains(this)) {
-      id_Var.removeChild(this);
-      id_Vast.appendChild(this);
-    }
-    else {
-      id_Vast.removeChild(this);
-      id_Var.appendChild(this);
-    }
-  };
+function verplaatsSteen(element) {
+  if (id_Var.contains(element)) {
+    id_Var.removeChild(element);
+    id_Vast.appendChild(element);
+  }
+  else {
+    id_Vast.removeChild(element);
+    id_Var.appendChild(element);
+  }
 }
 
 id_btnDobbel.onclick = function () {
   var aantalVar;
-  
+
   id_audioDice.load(); //forceert opnieuw afspelen als geluidsfragment nog niet is afgelopen
   id_audioDice.play();
 
@@ -72,7 +72,7 @@ id_btnDobbel.onclick = function () {
 
   // setTimeout kan niet in de for-loop staan, omdat de argumenten niet mogen veranderen tijdens het wachten!
   function myDelayDisplay(a, b) {
-    setTimeout(function(){steen[a].style.display = "inline";}, 500*b);
+    setTimeout(function () { steen[a].style.display = "inline"; }, 500 * b);
   }
 
   ChooseScore = true;
@@ -152,79 +152,83 @@ function score_opties() {
 
 // Hier wordt het klikken op een scoreveld afgehandeld
 for (i = 0; i < cl_TdClick.length; i++) {
-  cl_TdClick[i].onclick = function () {
-    var myId, totaal, j, k;
-    if (ChooseScore && (this.style.fontWeight < 900)) {
-      this.style.cursor = "auto";
-      this.style.fontWeight = 900;
-      this.style.backgroundColor = clrGreen500;
-      this.style.color = "black";
-      id_btnDobbel.innerHTML = "Dobbel";
-      ChooseScore = false;
-      beurten = 3;
-      rondes += 1;
-      id_btnDobbel.disabled = (rondes > 13);
-      id_worp1.style.visibility = "hidden";
-      id_worp2.style.visibility = "hidden";
-      id_worp3.style.visibility = "hidden";
+  cl_TdClick[i].addEventListener("click", function () { clickScoreveld(this); });
+}
 
-      // bepaal of velden 1 t/m 6 allemaal gevuld zijn en bepaal totaal
-      var Totaal_EenTotZes = 0;
-      var blnBonus = false;
-      for (i = 1; i <= 6; i++) {
-        myId = "td" + i;
-        var id = document.getElementById(myId);
-        if (id.style.fontWeight == 900) {
-          Totaal_EenTotZes += Number(id.innerHTML);
-        }
-      }
+function clickScoreveld(element) {
+  var myId, totaal, j, k;
+  if (ChooseScore && (element.style.fontWeight < 900)) {
+    element.style.cursor = "auto";
+    element.style.fontWeight = 900;
+    element.style.backgroundColor = clrGreen500;
+    element.style.color = "black";
+    id_btnDobbel.innerHTML = "Dobbel";
+    ChooseScore = false;
+    beurten = 3;
+    rondes += 1;
+    id_btnDobbel.disabled = (rondes > 13);
+    id_worp1.style.visibility = "hidden";
+    id_worp2.style.visibility = "hidden";
+    id_worp3.style.visibility = "hidden";
 
-      if (Totaal_EenTotZes > 0) {
-        document.getElementById("totaal").innerHTML = Totaal_EenTotZes;
-      }
-
-      if (Totaal_EenTotZes >= 63) {
-        blnBonus = true;
-        document.getElementById("bonus").innerHTML = 35;
-      }
-
-      // bereken totaalscore, leeg overige velden
-      totaal = 0;
-      for (j = 0; j < cl_TdClick.length; j++) {
-        if (cl_TdClick[j].style.fontWeight == 900) {
-          totaal = totaal + Number(cl_TdClick[j].innerHTML);
-        } else {
-          cl_TdClick[j].innerHTML = "";
-        }
-      }
-      if (blnBonus == true) {
-        totaal += 35;
-      }
-      document.getElementById("score").innerHTML = totaal;
-
-      if (rondes > 13) {
-        // spel is afgelopen
-        setInterval(function () {
-          id = document.getElementById("score");
-          if (id.style.backgroundColor != "white") {
-            id.style.backgroundColor = "white";
-          } else {
-            id.style.backgroundColor = clrGreen500;
-          }
-        }, 500);
-      }
-
-      // zet alle stenen terug naar de eerste rij en maak ze onzichtbaar
-      for (k = 0; k < 5; k++) {
-        if (id_Vast.contains(steen[k])) {
-          id_Vast.removeChild(steen[k]);
-          id_Var.appendChild(steen[k]);
-        }
-        steen[k].style.display = "none";
+    // bepaal of velden 1 t/m 6 allemaal gevuld zijn en bepaal totaal
+    var Totaal_EenTotZes = 0;
+    var blnBonus = false;
+    for (i = 1; i <= 6; i++) {
+      myId = "td" + i;
+      var id = document.getElementById(myId);
+      if (id.style.fontWeight == 900) {
+        Totaal_EenTotZes += Number(id.innerHTML);
       }
     }
-  };
+
+    if (Totaal_EenTotZes > 0) {
+      document.getElementById("totaal").innerHTML = Totaal_EenTotZes;
+    }
+
+    if (Totaal_EenTotZes >= 63) {
+      blnBonus = true;
+      document.getElementById("bonus").innerHTML = 35;
+    }
+
+    // bereken totaalscore, leeg overige velden
+    totaal = 0;
+    for (j = 0; j < cl_TdClick.length; j++) {
+      if (cl_TdClick[j].style.fontWeight == 900) {
+        totaal = totaal + Number(cl_TdClick[j].innerHTML);
+      } else {
+        cl_TdClick[j].innerHTML = "";
+      }
+    }
+    if (blnBonus == true) {
+      totaal += 35;
+    }
+    document.getElementById("score").innerHTML = totaal;
+
+    if (rondes > 13) {
+      // spel is afgelopen
+      setInterval(function () {
+        id = document.getElementById("score");
+        if (id.style.backgroundColor != "white") {
+          id.style.backgroundColor = "white";
+        } else {
+          id.style.backgroundColor = clrGreen500;
+        }
+      }, 500);
+    }
+  
+
+    // zet alle stenen terug naar de eerste rij en maak ze onzichtbaar
+    for (k = 0; k < 5; k++) {
+      if (id_Vast.contains(steen[k])) {
+        id_Vast.removeChild(steen[k]);
+        id_Var.appendChild(steen[k]);
+      }
+      steen[k].style.display = "none";
+    }
+  }
 }
+
 
 for (i = 0; i < cl_TdClick.length; i++) {
   cl_TdClick[i].onmouseenter = function () {
