@@ -3,10 +3,9 @@ var waarde = []; // aantal ogen op de getoonde stenen
 var beurten = 3; // aantal beurten binnen een ronde loopt af van 3 naar 1
 var rondes = 1; // aantal rondes loopt op van 1 naar 13
 var ChooseScore = false;  // geeft aan of speler een score mag kiezen in de tabel
+var i; //loop counter
 
-const clrGreen100 = "#C8E6C9";
 const clrGreen500 = "#4CAF50";
-const clrGreen800 = "#2E7D32";
 
 // zet DOM-elementen in variabelen
 var id_btnDobbel = document.getElementById("btnDobbel");
@@ -27,13 +26,13 @@ id_volumeMin.onclick = function () {
   id_audioDice.volume = 1;
   this.style.display = "none";
   id_volumeMax.style.display = "inline";
-}
+};
 
 id_volumeMax.onclick = function () {
   id_audioDice.volume = 0;
   this.style.display = "none";
   id_volumeMin.style.display = "inline";
-}
+};
 
 for (i = 0; i < 5; i++) {
   steen[i] = document.createElement("img");
@@ -50,10 +49,12 @@ for (i = 0; i < 5; i++) {
       id_Vast.removeChild(this);
       id_Var.appendChild(this);
     }
-  }
+  };
 }
 
 id_btnDobbel.onclick = function () {
+  var aantalVar;
+  
   id_audioDice.load(); //forceert opnieuw afspelen als geluidsfragment nog niet is afgelopen
   id_audioDice.play();
 
@@ -93,7 +94,7 @@ id_btnDobbel.onclick = function () {
     }
   }
   score_opties();
-}
+};
 
 function score_opties() {
   var aantal = []; //het aantal gedobbelde enen, tweeeen, ... , zessen in de worp
@@ -152,6 +153,7 @@ function score_opties() {
 // Hier wordt het klikken op een scoreveld afgehandeld
 for (i = 0; i < cl_TdClick.length; i++) {
   cl_TdClick[i].onclick = function () {
+    var myId, totaal, j, k;
     if (ChooseScore && (this.style.fontWeight < 900)) {
       this.style.cursor = "auto";
       this.style.fontWeight = 900;
@@ -209,8 +211,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
           } else {
             id.style.backgroundColor = clrGreen500;
           }
-        }
-          , 500);
+        }, 500);
       }
 
       // zet alle stenen terug naar de eerste rij en maak ze onzichtbaar
@@ -222,7 +223,7 @@ for (i = 0; i < cl_TdClick.length; i++) {
         steen[k].style.display = "none";
       }
     }
-  }
+  };
 }
 
 for (i = 0; i < cl_TdClick.length; i++) {
@@ -230,13 +231,13 @@ for (i = 0; i < cl_TdClick.length; i++) {
     if (this.style.fontWeight < 900) {
       this.style.backgroundColor = clrGreen500;
     }
-  }
+  };
   cl_TdClick[i].onmouseleave = function () {
     if (this.style.fontWeight < 900) {
       this.style.backgroundColor = "white";
     }
-  }
+  };
 }
 
 // Pagina vernieuwen
-id_refresh.onclick = function () { location.reload(); }
+id_refresh.onclick = function () { location.reload(); };
