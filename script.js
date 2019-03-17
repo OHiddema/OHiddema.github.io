@@ -71,7 +71,7 @@ id_btnDobbel.onclick = function () {
 
   // setTimeout kan niet in de for-loop staan, omdat de argumenten niet mogen veranderen tijdens het wachten!
   function myDelayDisplay(a, b) {
-    setTimeout(function(){steen[a].style.display = "inline";}, 500*b)
+    setTimeout(function(){steen[a].style.display = "inline";}, 500*b);
   }
 
   ChooseScore = true;
@@ -80,6 +80,7 @@ id_btnDobbel.onclick = function () {
   switch (beurten) {
     case 0: {
       id_btnDobbel.disabled = true;
+      id_btnDobbel.innerHTML = "Kies een score!";
       id_worp3.style.visibility = "visible";
     }
       break;
@@ -97,7 +98,7 @@ id_btnDobbel.onclick = function () {
 function score_opties() {
   var aantal = []; //het aantal gedobbelde enen, tweeeen, ... , zessen in de worp
   var som_stenen = 0; // de som van de waarde van alle stenen in de worp
-  var id //als tijdelijke opslag DOM variabele
+  var id; //als tijdelijke opslag DOM variabele
 
   // initialisatie array
   for (i = 1; i <= 6; i++) { aantal[i] = 0; }
@@ -106,11 +107,11 @@ function score_opties() {
   for (i = 0; i < 5; i++) { aantal[waarde[i]] += 1; }
 
   // bepaal de som van alle stenen (voor chance)
-  for (i = 1; i <= 6; i++) { som_stenen += aantal[i] * i }
+  for (i = 1; i <= 6; i++) { som_stenen += aantal[i] * i; }
 
   // zet punten voor enen t/m zessen in de tabel
   for (i = 1; i <= 6; i++) {
-    var id = document.getElementById("td" + i);
+    id = document.getElementById("td" + i);
     if (id.style.fontWeight < 900) { id.innerHTML = aantal[i] * i; }
   }
 
@@ -155,7 +156,8 @@ for (i = 0; i < cl_TdClick.length; i++) {
       this.style.cursor = "auto";
       this.style.fontWeight = 900;
       this.style.backgroundColor = clrGreen500;
-      this.style.color = "black"
+      this.style.color = "black";
+      id_btnDobbel.innerHTML = "Dobbel";
       ChooseScore = false;
       beurten = 3;
       rondes += 1;
