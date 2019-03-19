@@ -1,13 +1,18 @@
+19-03-2019
+- code verbeterd
+- addEventListener/removeEventListener toegepast
+- classlist.replace toegepast
+
 16-03-2019
 - Gedobbelde stenen worden een voor een getoond.
-- Uitlijning iconen linksboven verbetert door !important in css toe te passen op uitleg-link.
+- Uitlijning iconen linksboven verbeterd door !important toe te passen in css om margins/paddings aan te passen. (dirty fix?)
 
 07-03-2019 - 13-03-2019
 - CSS variabelen gebruikt om kleurwaardes vast te leggen en deze ook overgenomen inJS.
 - Header en footer toegevoegd.
 - Custom fonts gebruikt.
 - Aantal worpen; tekst veranderd in custom progress bar.
-- Intopagina met 3D-element toegevoegd.
+- Intropagina met 3D-element toegevoegd.
 - Linkpagina met uitleg toegevoegd.
 - 'Font Awesome' icoon gebruikt.
 - Dobbelgeluid toegevoegd.

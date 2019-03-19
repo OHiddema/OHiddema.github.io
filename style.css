@@ -135,6 +135,15 @@ th, td {
   cursor: pointer;
 }
 
+/* insert -------------------------------------------- */
+.td_clickable_after {
+  color: black;
+  cursor: auto;
+  font-weight: 900;
+  background-color: var(--clrGreen500);
+}
+/* insert -------------------------------------------- */
+
 img {
   width: 50px;
   margin: 2px;
